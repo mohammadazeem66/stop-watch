@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .maincontainer {
+            border: 1px black solid;
+            width: 99%;
+            height: 900px;
+            padding: 7px;
+            background-color: darksalmon;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .count {
+            border: 3px black solid;
+            height: 220px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 8px 6px red;
+            overflow: hidden;
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 15px;
+            background-color: rgb(245, 52, 52);
+            border-style: none;
+
+        }
+
+        .btns {
+            margin-top: 25px;
+            /* justify-content: space-evenly; */
+            display: flex;
+            gap: 21px;
+            /* justify-content: space-around; */
+            padding: 5px;
+            margin-left: 15px;
+        }
+
+        .mySpans {
+            line-height: 30px;
+            display: flex;
+            gap: 30px;
+            margin-left: 20px;
+        }
+        #onbtn, #offbtn, #strtbtn{
+        /* padding: 5px; */
+        padding: 5px 10px 5px 10px;
+        /* color: aliceblue; */
+        font-size: 15px;
+        border-radius: 5px;
+        background-color: rgb(243, 168, 143);
+        border-style: none;
+
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="maincontainer">
+
+        <div class="count">
+            <h1> Countdown </h1>
+         
+            <div class="mySpans">
+                <span id="hrs">00</span> :
+                <span id="mints">00</span> :
+                <span id="sec">00</span>
+            </div>
+
+            <div class="btns">
+
+                <button id="onbtn" onclick="on()">ON </button>
+                <button id="offbtn" onclick="off()">OFF</button>
+                <button id="strtbtn" onclick="reset()">RESET</button>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+
+        var a;
+        function on() {
+            var c = 1, d = "0", e, x = 0, y = "0", b, f, g = 1, h;
+            a = setInterval(function () {
+                if (x <= 9) {
+                    b = y + x;
+                    x++;
+                }
+                else {
+                    b++;
+                }
+                if (b >= 60) {
+                    b = 0;
+                    if (c <= 9) {
+                        e = d + c;
+                        c++;
+                    }
+                    else {
+                        e++;
+                    }
+
+                    if (e >= 60) {
+                        e = 0;
+                        if (g <= 9) {
+                            h = d + g;
+                            g++;
+                        }
+                        else {
+                            h++;
+                        }
+                        document.getElementById("hrs").innerHTML = h;
+                    }
+                    document.getElementById("mints").innerHTML = e;
+                }
+                document.getElementById("sec").innerHTML = b;
+            }, 500);
+        }
+        function reset() {
+            clearInterval(a);
+            document.getElementById("sec").innerHTML = "00";
+            document.getElementById("mints").innerHTML = "00";
+            document.getElementById("hrs").innerHTML = "00";
+        }
+        function off() {
+            clearInterval(a);
+            document.getElementById("sec").innerHTML = h;
+            document.getElementById("mints").innerHTML = e;
+            document.getElementById("hrs").innerHTML = b;
+        }
+
+
+
+
+
+
+
+        // setInterval(function (){
+        //     let hrs = document.querySelector("#hrs");
+        //     let mints = document.querySelector("#mints");
+        //     let sec = document.querySelector("#sec");
+        //     let second = 0;
+        //     let minut = 0;
+        //     let hour = 0;
+        //     for(let i = 0; i <= 60; i++) {
+        //         if(second < 60){
+        //             second = second + 1;
+        //             sec.innerText = second;
+        //         }
+        //     }
+        // }, 1000);
+        // start()   
+
+
+    </script>
+</body>
+
+</html>
